@@ -1,5 +1,6 @@
 from django.db import models
-from .models import Book, Category  # Import the Book and Category models
+from .book import Book # Import the Book and Category models
+from .category import Category
 
 class BookCategory(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
