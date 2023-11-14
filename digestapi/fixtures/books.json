@@ -1,0 +1,24 @@
+[
+    {
+        "model": "digestapi.book",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "title": "Sample Book 1",
+            "author": "Author 1",
+            "isbn_number": "1234567890123",
+            "cover_image": "https://example.com/cover1.jpg"
+        }
+    },
+    {
+        "model": "digestapi.book",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "title": "Sample Book 2",
+            "author": "Author 2",
+            "isbn_number": "9876543210987",
+            "cover_image": "https://example.com/cover2.jpg"
+        }
+    }
+]
