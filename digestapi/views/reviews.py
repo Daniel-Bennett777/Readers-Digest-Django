@@ -21,7 +21,7 @@ class ReviewViewSet(viewsets.ViewSet):
 
     def list(self, request):
         # Get all reviews
-        review = Review.object.all()
+        reviews = Review.objects.all()
         # Serialize the objects, and pass request to determine owner
         serializer = ReviewSerializer(reviews, many=True, context={'request': request})
 
@@ -33,7 +33,7 @@ class ReviewViewSet(viewsets.ViewSet):
         # values from the request payload using `request.data`
         serializer = ReviewSerializer(data=request.data, context={'request': request})
 
-        book_id = request.data.get('book_id')
+        book_id = request.data.get('book')
         rating = request.data.get('rating')
         comment = request.data.get('comment')
 
