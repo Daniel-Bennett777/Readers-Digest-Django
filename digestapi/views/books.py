@@ -63,7 +63,7 @@ class BookViewSet(viewsets.ViewSet):
             book = Book.objects.get(pk=pk)
 
             # Is the authenticated user allowed to edit this book?
-            self.check_object_permissions(request, book)
+            
 
             serializer = BookSerializer(data=request.data)
             if serializer.is_valid():
@@ -73,7 +73,7 @@ class BookViewSet(viewsets.ViewSet):
                 book.cover_image = serializer.validated_data['cover_image']
                 book.save()
 
-                category_ids = request.data.get('categories', [])
+                category_ids = [category['id'] for category in request.data.get('categories', [])]
                 book.categories.set(category_ids)
 
                 serializer = BookSerializer(book, context={'request': request})
